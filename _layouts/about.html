@@ -11,15 +11,25 @@ layout: default
           <p class="desc">{{ page.subtitle }}</p>
         </header>
 
-        <article>
+        <article style="padding-top: 1rem;">
           {% if page.profile -%}
           <div class="profile float-{%- if page.profile.align == 'left' -%}left{%- else -%}right{%- endif -%}">
-            {%- if page.profile.image %}
-              {%- assign profile_image_path = page.profile.image | prepend: 'assets/img/' -%}
+            {%- assign profile_image_path = page.profile.image | prepend: 'assets/img/' -%}
+            {%- if page.profile.svg -%}
+              {%- assign profile_svg_path = page.profile.svg | prepend: 'assets/svg/' -%}
+              <object data={{ profile_svg_path }} type="image/svg+xml" width="auto" height="auto" title={{ page.profile.svg }}>
+                <!--[if lte IE 8]><img src={{ profile_image_path }} alt={{ page.profile.image }} /><![endif]-->
+                <!--[if gt IE 8]><img src={{ profile_svg_path }} alt={{ page.profile.svg }} /><![endif]-->
+                <!--[if !IE]> --><img src={{ profile_svg_path }} alt={{ page.profile.svg }} /><!-- <![endif]-->
+              </object>
+              {%- elsif page.profile.image %}
               {% include figure.html 
               path=profile_image_path 
-              class="img-fluid z-dept-1 rounded"
+              class="img-fluid rounded"
               alt=page.profile.image -%}
+            {%- elsif page.profile.svg -%}
+              {%- assign profile_svg_path = page.profile.svg | prepend: 'svg/' -%}
+              {% include {{ profile_svg_path }} %}
             {% endif -%}
             {%- if page.profile.address %}
             <div class="address">
@@ -32,7 +42,11 @@ layout: default
           <div class="clearfix">
             {{ content }}
           </div>
-
+          
+          <div class="tagline">
+            {{ site.tagline }}
+          </div>
+          
           {% if page.news -%}
           <!-- News -->
           {%- include news.html %}
