@@ -26,8 +26,8 @@ layout: default
                     <table class="table table-sm table-borderless table-responsive">
                       {% for content in entry.contents %}
                         <tr>
-                          <td class="p-1 pr-2 font-weight-bold"><b>{{ content.name }}</b></td>
-                          <td class="p-1 pl-2 font-weight-light text">{{ content.value }}</td>
+                          <td class="p-1 pr-4 font-weight-bold"><b>{{ content.name }}</b></td>
+                          <td class="p-1 pl-4 font-weight-light text">{{ content.value }}</td>
                         </tr>
                       {% endfor %}
                     </table>
@@ -53,7 +53,7 @@ layout: default
                         <div class="row">
                           {% if content.year %}
                             <div class="col-xs-2 cl-sm-2 col-md-2 text-center" style="width: 75px;">
-                              <span class="badge font-weight-bold danger-color-dark text-uppercase align-middle" style="min-width: 75px;">
+                              <span class="badge font-weight-bold danger-color-dark align-middle" style="min-width: 75px;">
                                 {{ content.year }}
                               </span>
                             </div>
@@ -61,6 +61,9 @@ layout: default
                           <div class="col-xs-10 cl-sm-10 col-md-10 mt-2 mt-md-0">
                             {% if content.title %}
                             <h6 class="title font-weight-bold ml-1 ml-md-4">{{content.title}}</h6>
+                            {% endif %}
+                            {% if content.title2 %}
+                            <h6 class="ml-1 ml-md-4" style="font-size: 0.95rem;">{{content.title2}}</h6>
                             {% endif %}
                             {% if content.description %}
                               <ul class="items">
@@ -103,6 +106,8 @@ layout: default
                       </li>
                     {% endfor %}
                     </ul>
+                  {% else %}
+                    {{ entry.contents }}
                   {% endif %}
                   </div>
                 </div>
