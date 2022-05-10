@@ -1,3 +1,6 @@
+**This project was forked from [alshedivat/al-folio](https://github.com/alshedivat/al-folio).**
+---
+
 # al-folio
 
 [![deploy](https://github.com/alshedivat/al-folio/actions/workflows/deploy.yml/badge.svg)](https://github.com/alshedivat/al-folio/actions/workflows/deploy.yml)
@@ -102,9 +105,15 @@ Neural Compression (ICLR: <a href="https://neuralcompression.github.io/" target=
 </table>
 
 
-## Best practices
+## PageSpeed Insights
 
-[![Google PageSpeeg](https://raw.githubusercontent.com/alshedivat/al-folio/master/assets/img/pagespeed.svg)](https://developers.google.com/speed/pagespeed/insights/?url=https%3A%2F%2Falshedivat.github.io%2Fal-folio%2F&tab=desktop)
+### Desktop:
+
+[![Google PageSpeed](assets/svg/pagespeed.svg)](https://pagespeed.web.dev/report?url=https://rohandebsarkar.github.io/&form_factor=desktop)
+
+### Mobile:
+
+[![Google PageSpeed](assets/svg/pagespeed_mobile.svg)](https://pagespeed.web.dev/report?url=https://rohandebsarkar.github.io/&form_factor=mobile)
 
 
 ## Getting started
